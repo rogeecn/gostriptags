@@ -46,12 +46,12 @@ func escape(w *bytes.Buffer, s string) error {
 }
 
 type StripTags struct {
-	EscapeNotValid bool                   // escape not valid tag
-	TrimSpace      bool                   // trim html space
-	ValidTags      map[string]interface{} // default validation tag, see also this.Init method
-	ValidAttrs     map[string]bool        // default validation attribute
-	DisableAttrs   map[string]bool        // default disabled attribute
-	buf            *bytes.Buffer
+	EscapeInValid bool                   // escape invalid tag
+	TrimSpace     bool                   // trim html space
+	ValidTags     map[string]interface{} // default validation tag, see also this.Init method
+	ValidAttrs    map[string]bool        // default validation attribute
+	DisableAttrs  map[string]bool        // default disabled attribute
+	buf           *bytes.Buffer
 }
 
 func (this *StripTags) Init() {
@@ -188,7 +188,7 @@ func (this *StripTags) handleTag(token *html.Token) {
 		return
 	}
 
-	if !this.EscapeNotValid {
+	if !this.EscapeInValid {
 		return
 	}
 	this.buf.WriteString("&lt;")

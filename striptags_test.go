@@ -47,16 +47,16 @@ func TestDefaultStripTags(t *testing.T) {
 	fmt.Println(html_clean)
 }
 
-func TestEscapeNotValid(t *testing.T) {
+func TestEscapeInValid(t *testing.T) {
 	strip_tags := NewStripTags()
-	strip_tags.EscapeNotValid = true
+	strip_tags.EscapeInValid = true
 	html_clean, _ := strip_tags.Fetch(html_str)
 	fmt.Println(html_clean)
 }
 
 func TestTrimSpace(t *testing.T) {
 	strip_tags := NewStripTags()
-	// strip_tags.EscapeNotValid = true
+	// strip_tags.EscapeInValid = true
 	strip_tags.TrimSpace = true
 	html_clean, _ := strip_tags.Fetch(html_str)
 	fmt.Println(html_clean)
@@ -74,7 +74,7 @@ func TestValidTags(t *testing.T) {
 	</ul>
 	`
 	strip_tags := NewStripTags()
-	strip_tags.EscapeNotValid = true
+	strip_tags.EscapeInValid = true
 	// strip_tags.TrimSpace = true
 	strip_tags.ValidTags = map[string]interface{}{
 		"p":  true,
@@ -101,7 +101,7 @@ func TestValidAttrs(t *testing.T) {
 	</ul>
 	`
 	strip_tags := NewStripTags()
-	strip_tags.EscapeNotValid = true
+	strip_tags.EscapeInValid = true
 	// strip_tags.TrimSpace = true
 	strip_tags.ValidTags = map[string]interface{}{
 		"p":  true,
