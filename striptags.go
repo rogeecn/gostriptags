@@ -2,7 +2,8 @@ package striptags
 
 import (
 	"bytes"
-	"code.google.com/p/go.net/html"
+	"golang.org/x/net/html"
+	//"code.google.com/p/go.net/html"
 	"io"
 	"reflect"
 	"strings"
